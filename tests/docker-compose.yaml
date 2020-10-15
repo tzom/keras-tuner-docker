@@ -1,0 +1,5 @@
+version: "3"
+services:
+  keras-tuner:
+    build: .
+    image: tzom/keras-tuner-docker:latest
