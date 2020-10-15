@@ -20,4 +20,5 @@ RUN pip install tensorflow-cpu \
 
 COPY ./ /keras-tuner
 WORKDIR /keras-tuner
-RUN pip install -e .[tests] --progress-bar off
+RUN pip install -e git+https://github.com/keras-team/keras-tuner.git#egg=keras-tuner
+#RUN pip install -e .[tests] --progress-bar off
