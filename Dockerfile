@@ -18,7 +18,10 @@ RUN pip install tensorflow-cpu \
                 pytest-xdist \
                 pytest-cov
 
-COPY ./ /keras-tuner
+RUN apt-get update
+RUN apt-get install -y git
+RUN git clone https://github.com/keras-team/keras-tuner.git
+#COPY ./ /keras-tuner
 WORKDIR /keras-tuner
-RUN pip install -e git+https://github.com/keras-team/keras-tuner.git#egg=keras-tuner[tests]
-#RUN pip install -e .[tests] --progress-bar off
+#RUN pip install -e git+https://github.com/keras-team/keras-tuner.git#egg=keras-tuner[tests]
+RUN pip install -e .[tests] --progress-bar off
